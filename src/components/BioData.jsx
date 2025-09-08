@@ -1,5 +1,10 @@
 // BioData()
 
+// component has 2 layers
+// 1) Presentation Layer (Html, Css)
+// 2) Data/Logic Layer
+// i) Props (Another Component will pass me the data as argument)
+// ii) State (Dynamic Data -> Changeable Data -> User Interaction)
 const BioData = (props) => {
 	// console.log(props, "props");
 	const { name, phone, email, linkedIn, skills, interests } = props;
