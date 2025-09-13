@@ -4,6 +4,32 @@ const App = () => {
 	// Filter Logic Implementation
 	const [todoTitle, setTodoTitle] = useState("");
 	const [todoList, setTodoList] = useState([]);
+	const [filterTerm, setFilterTerm] = useState("all");
+	const [editMode, setEditMode] = useState(false);
+	const [editableTodo, setEditableTodo] = useState(null);
+	//typeof null
+	// filterTerm = "all"
+
+	// calculated States === derived State
+
+	const filteredTodoList = todoList.filter((todo) => {
+		if (filterTerm === "completed") {
+			return todo.isCompleted === true;
+			// false === true
+		} else if (filterTerm === "active") {
+			return todo.isCompleted === false;
+			// false === false
+			// true === false
+		} else {
+			return true;
+		}
+	});
+
+	// derived state
+	// completedTodoList
+	// activeTodoList
+
+	// "all" "active" "completed"
 	// todoList = newList
 
 	// oracle ->
@@ -14,6 +40,10 @@ const App = () => {
 		event.preventDefault();
 		if (!todoTitle.trim()) return alert(`Please provide a valid title`);
 
+		editMode === true ? updateTitleHandler() : createTodo();
+	};
+
+	const createTodo = () => {
 		const newTodo = {
 			id: Date.now() + "",
 			title: todoTitle,
@@ -49,6 +79,25 @@ const App = () => {
 		setTodoList(newList);
 	};
 
+	const editHandler = (todo) => {
+		setEditMode(true);
+		setEditableTodo(todo);
+		setTodoTitle(todo.title);
+	};
+
+	const updateTitleHandler = () => {
+		const newList = todoList.map((todo) => {
+			if (todo.id === editableTodo.id) {
+				return { ...todo, title: todoTitle };
+			}
+			return { ...todo };
+		});
+
+		setTodoList(newList);
+		setEditMode(false);
+		setTodoTitle("");
+	};
+
 	return (
 		<div style={{ textAlign: "center" }}>
 			<h2>Our Todo App</h2>
@@ -61,10 +110,24 @@ const App = () => {
 					value={todoTitle}
 					onChange={(event) => setTodoTitle(event.target.value)}
 				/>
-				<button type="submit">Add Todo</button>
+				<button type="submit">
+					{editMode === true ? "Update Todo" : "Add Todo"}
+				</button>
 			</form>
+			<select
+				onChange={(event) => setFilterTerm(event.target.value)}
+				// "completed"
+				style={{ marginTop: "2rem" }}
+				value={filterTerm}
+			>
+				<option value="all">All</option>
+				<option value="active">Active</option>
+				<option value="completed">Completed</option>
+			</select>
+			<br />
+			{/* <input type="text" /> */}
 			<ul>
-				{todoList.map((todo) => (
+				{filteredTodoList.map((todo) => (
 					<li key={todo.id}>
 						<input
 							type="checkbox"
@@ -72,6 +135,7 @@ const App = () => {
 							onChange={() => updateHandler(todo.id)}
 						/>
 						<span>{todo.title}</span>
+						<button onClick={() => editHandler(todo)}>Edit</button>
 						<button onClick={() => removeHandler(todo.id)}>
 							Remove Todo
 						</button>
