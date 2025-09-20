@@ -1,13 +1,12 @@
-import { useState } from "react";
+// import { useState } from "react";
 import TodoFilter from "./TodoFilter";
 import TodoList from "./TodoList";
 
-const TodoListSection = (props) => {
-	const [filterTerm, setFilterTerm] = useState("all");
+const TodoListSection = () => {
 	return (
 		<>
-			<TodoFilter filterTerm={filterTerm} setFilterTerm={setFilterTerm} />
-			<TodoList {...props} filterTerm={filterTerm} />
+			<TodoFilter />
+			<TodoList />
 		</>
 	);
 };

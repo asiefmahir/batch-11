@@ -1,12 +1,16 @@
 // import { useState } from "react";
+import { useContext } from "react";
+import { TodoContext } from "../contexts/Todo";
 
-const TodoFilter = (props) => {
+const TodoFilter = () => {
+	const { filterTerm, setFilterTerm } = useContext(TodoContext);
+
 	return (
 		<select
-			onChange={(event) => props.setFilterTerm(event.target.value)}
+			onChange={(event) => setFilterTerm(event.target.value)}
 			// "completed"
 			style={{ marginTop: "2rem" }}
-			value={props.filterTerm}
+			value={filterTerm}
 		>
 			<option value="all">All</option>
 			<option value="active">Active</option>

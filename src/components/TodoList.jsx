@@ -1,46 +1,11 @@
 // import { useState } from "react";
+import { useContext } from "react";
+import { TodoContext } from "../contexts/Todo";
 
-const TodoList = (props) => {
-	const filteredTodoList = props.todoList.filter((todo) => {
-		if (props.filterTerm === "completed") {
-			return todo.isCompleted === true;
-			// false === true
-		} else if (props.filterTerm === "active") {
-			return todo.isCompleted === false;
-			// false === false
-			// true === false
-		} else {
-			return true;
-		}
-	});
+const TodoList = () => {
+	const { filteredTodoList, updateHandler, editHandler, removeHandler } =
+		useContext(TodoContext);
 
-	const removeHandler = (todoId) => {
-		// todoId = "2"
-		//
-		// todoList.filter((todo) => true)
-		const newList = props.todoList.filter((todo) => todo.id !== todoId);
-		//                            ((todo) => "2" !== "2")
-		props.setTodoList(newList);
-		//
-	};
-
-	const updateHandler = (todoId) => {
-		const newList = props.todoList.map((todo) => {
-			if (todo.id === todoId) {
-				// todo.isCompleted = !todo.isCompleted;
-				return { ...todo, isCompleted: !todo.isCompleted };
-			}
-			return { ...todo };
-		});
-
-		props.setTodoList(newList);
-	};
-
-	const editHandler = (todo) => {
-		props.setEditMode(true);
-		props.setEditableTodo(todo);
-		props.setTodoTitle(todo.title);
-	};
 	return (
 		<ul>
 			{filteredTodoList.map((todo) => (
