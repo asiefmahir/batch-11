@@ -3,11 +3,19 @@ import { useContext } from "react";
 import { TodoContext } from "../contexts/Todo";
 
 const TodoFilter = () => {
-	const { filterTerm, setFilterTerm } = useContext(TodoContext);
+	const {
+		todoStates: { filterTerm },
+		dispatch,
+	} = useContext(TodoContext);
 
 	return (
 		<select
-			onChange={(event) => setFilterTerm(event.target.value)}
+			onChange={(event) =>
+				dispatch({
+					type: "CHANGE_FILTER_TERM",
+					payload: event.target.value,
+				})
+			}
 			// "completed"
 			style={{ marginTop: "2rem" }}
 			value={filterTerm}

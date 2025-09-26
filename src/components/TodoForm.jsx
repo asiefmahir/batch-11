@@ -9,15 +9,23 @@ import { TodoContext } from "../contexts/Todo";
 
 const TodoForm = () => {
 	// retreiving value from Todo Context
-	const { todoTitle, editMode, setTodoTitle, submitHandler } =
-		useContext(TodoContext);
+	const {
+		todoStates: { todoTitle, editMode },
+		submitHandler,
+		dispatch,
+	} = useContext(TodoContext);
 
 	return (
 		<form onSubmit={submitHandler}>
 			<input
 				type="text"
 				value={todoTitle}
-				onChange={(event) => setTodoTitle(event.target.value)}
+				onChange={(event) =>
+					dispatch({
+						type: "CHANGE_INPUT_VALUE",
+						payload: event.target.value,
+					})
+				}
 			/>
 			<button type="submit">
 				{editMode === true ? "Update Todo" : "Add Todo"}
