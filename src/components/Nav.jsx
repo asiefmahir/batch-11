@@ -11,12 +11,15 @@ const Nav = () => {
 				<li>
 					<Link to="/about">About</Link>
 				</li>
+				<li>
+					<Link to="/counter-app">Counter App</Link>
+				</li>
 
 				<li>
 					<Link to="/team">Team</Link>
 				</li>
 				<li>
-					<Link to="/abc">ABC</Link>
+					<Link to="/todo-app">Todo App</Link>
 				</li>
 				<li>
 					<Link to="/posts">PostList</Link>
