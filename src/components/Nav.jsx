@@ -12,6 +12,9 @@ const Nav = () => {
 					<Link to="/about">About</Link>
 				</li>
 				<li>
+					<Link to="/redux-example">Redux Example</Link>
+				</li>
+				<li>
 					<Link to="/counter-app">Counter App</Link>
 				</li>
 
