@@ -7,6 +7,7 @@ import PostList from "../pages/PostList";
 import PostDetails from "../pages/PostDetails";
 import Todo from "../pages/Todo";
 import Counter from "../pages/Counter";
+import ReduxExamples from "../pages/ReduxExamples";
 
 // dynamic Routing
 // 404 Route
@@ -34,6 +35,7 @@ export const ourRouter = createBrowserRouter([
 			{ path: "/todo-app", element: <Todo /> },
 			{ path: "/posts/:postId", element: <PostDetails /> },
 			{ path: "/counter-app", element: <Counter /> },
+			{ path: "/redux-example", element: <ReduxExamples /> },
 		],
 	},
 ]);
