@@ -9,10 +9,3 @@ export default function Root() {
 		</>
 	);
 }
-
-// function add(num1, num2) {
-// 	return num1 + num2;
-// }
-
-// add(10, 15);
-// add(25, 50);

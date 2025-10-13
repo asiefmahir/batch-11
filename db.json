@@ -1,39 +1,59 @@
 {
-  "todos": [
-    {
-      "id": "1",
-      "title": "Todo 1",
-      "isCompleted": false
-    },
-    {
-      "id": "2",
-      "title": "Todo 2",
-      "isCompleted": true
-    },
-    {
-      "title": "Todo 4",
-      "isCompleted": false,
-      "id": "jRAW_Cq"
-    },
-    {
-      "title": "Todo 5",
-      "isCompleted": false,
-      "id": "Q0a3c4O"
-    },
-    {
-      "title": "Todo 6",
-      "isCompleted": false,
-      "id": "54pUrYA"
-    },
-    {
-      "title": "Todo 7",
-      "isCompleted": false,
-      "id": "YD-tuYd"
-    },
-    {
-      "title": "Todo8",
-      "isCompleted": false,
-      "id": "vHSZxgu"
-    }
-  ]
+	"todos": [
+		{
+			"id": "1",
+			"title": "Todo 1",
+			"isCompleted": false
+		},
+		{
+			"id": "2",
+			"title": "Todo 2",
+			"isCompleted": true
+		},
+		{
+			"title": "Todo 4",
+			"isCompleted": false,
+			"id": "jRAW_Cq"
+		},
+		{
+			"title": "Todo 5",
+			"isCompleted": false,
+			"id": "Q0a3c4O"
+		},
+		{
+			"title": "Todo 6",
+			"isCompleted": false,
+			"id": "54pUrYA"
+		},
+		{
+			"title": "Todo 7",
+			"isCompleted": false,
+			"id": "YD-tuYd"
+		},
+		{
+			"title": "Todo8",
+			"isCompleted": false,
+			"id": "vHSZxgu"
+		}
+	],
+	"products": [
+		{
+			"id": "p-1",
+			"title": "Basket Ball",
+			"price": 250,
+			"image": "https://images.pexels.com/photos/358042/pexels-photo-358042.jpeg?_gl=1*vckza6*_ga*MTg0ODMyNTE0Mi4xNzYwMzY2NTMx*_ga_8JE65Q40S6*czE3NjAzNjY1MzAkbzEkZzEkdDE3NjAzNjY1MzYkajU0JGwwJGgw"
+		},
+		{
+			"id": "p-2",
+			"title": "Football",
+			"price": 450,
+			"image": "https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg?_gl=1*lraw*_ga*MTg0ODMyNTE0Mi4xNzYwMzY2NTMx*_ga_8JE65Q40S6*czE3NjAzNjY1MzAkbzEkZzEkdDE3NjAzNjY1OTckajU4JGwwJGgw"
+		},
+		{
+			"id": "p-3",
+			"title": "Boxing Gloves",
+			"price": 450,
+			"image": "https://images.pexels.com/photos/6739946/pexels-photo-6739946.jpeg?_gl=1*5nvrwn*_ga*MTg0ODMyNTE0Mi4xNzYwMzY2NTMx*_ga_8JE65Q40S6*czE3NjAzNjY1MzAkbzEkZzEkdDE3NjAzNjY2NzAkajUzJGwwJGgw"
+		}
+	]
 }

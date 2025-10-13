@@ -1,41 +1,18 @@
 import { createBrowserRouter } from "react-router";
-import Home from "../pages/Home";
-import About from "../pages/About";
+
 import Root from "../pages/Root";
-import Team from "../pages/Team";
-import PostList from "../pages/PostList";
-import PostDetails from "../pages/PostDetails";
-import Todo from "../pages/Todo";
-import Counter from "../pages/Counter";
 import ReduxExamples from "../pages/ReduxExamples";
-
-// dynamic Routing
-// 404 Route
-// Error Element
-
-// focus()
-
-// useMemo()
-// memo()
-// useCallback()
-
-// map()
-
-// system design
+import Shop from "../pages/Shop";
+import Cart from "../pages/Cart";
 
 export const ourRouter = createBrowserRouter([
 	{
 		path: "/",
 		element: <Root />,
 		children: [
-			{ path: "/about", element: <About /> },
-			{ path: "/", element: <Home /> },
-			{ path: "/team", element: <Team /> },
-			{ path: "/posts", element: <PostList /> },
-			{ path: "/todo-app", element: <Todo /> },
-			{ path: "/posts/:postId", element: <PostDetails /> },
-			{ path: "/counter-app", element: <Counter /> },
 			{ path: "/redux-example", element: <ReduxExamples /> },
+			{ path: "/cart", element: <Cart /> },
+			{ path: "/", element: <Shop /> },
 		],
 	},
 ]);
