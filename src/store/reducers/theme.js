@@ -4,6 +4,9 @@ const initThemeState = {
 };
 
 export const themeReducer = (state = initThemeState, action) => {
+	// parameter/argument
+	// action === {type: "theme/changeBgColor", payload: "tomato",
+	// }
 	switch (action.type) {
 		case "theme/changeBgColor": {
 			return {
