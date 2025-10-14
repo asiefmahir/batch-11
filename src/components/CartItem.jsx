@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import {
+	modifyQuantityOfAnItem,
+	removeProductFromCart,
+} from "../store/actions/cart";
 
 function CartItem({ item }) {
 	const [itemQuantity, setItemQuantity] = useState(item.quantity);
@@ -32,13 +36,12 @@ function CartItem({ item }) {
 								return alert(`Quantity can not be less not 1`);
 							}
 							setItemQuantity(itemQuantity - 1);
-							dispatch({
-								type: "cart/modifyQuantityOfAnItem",
-								payload: {
+							dispatch(
+								modifyQuantityOfAnItem({
 									id: item.id,
 									quantity: itemQuantity - 1,
-								},
-							});
+								}),
+							);
 						}}
 					>
 						<figure>-</figure>
@@ -53,10 +56,12 @@ function CartItem({ item }) {
 							console.log(typeof event.target.value);
 							const newQuantity = Number(event.target.value);
 							setItemQuantity(newQuantity);
-							dispatch({
-								type: "cart/modifyQuantityOfAnItem",
-								payload: { id: item.id, quantity: newQuantity },
-							});
+							dispatch(
+								modifyQuantityOfAnItem({
+									id: item.id,
+									quantity: newQuantity,
+								}),
+							);
 						}}
 					/>
 					<button
@@ -65,13 +70,21 @@ function CartItem({ item }) {
 						type="button"
 						onClick={() => {
 							setItemQuantity(itemQuantity + 1);
-							dispatch({
-								type: "cart/modifyQuantityOfAnItem",
-								payload: {
+							// dispatch({
+							// 	type: "cart/modifyQuantityOfAnItem",
+							// 	payload: {
+							// 		id: item.id,
+							// 		quantity: itemQuantity + 1,
+							// 	},
+							// });
+
+							dispatch(
+								modifyQuantityOfAnItem({
 									id: item.id,
 									quantity: itemQuantity + 1,
-								},
-							});
+								}),
+							);
+							// dispatch({type: "cart/modifyQuantityOfAnItem", payload: {id: item.id, quantity: itemQuantity + 1} })
 						}}
 					>
 						<figure>+</figure>
@@ -81,11 +94,18 @@ function CartItem({ item }) {
 			<td>$ {item.price * item.quantity}</td>
 			<td>
 				<button
-					onClick={() =>
-						dispatch({
-							type: "cart/removeProductFromCart",
-							payload: item.id,
-						})
+					onClick={
+						() =>
+							// dispatch({
+							// 	type: "cart/removeProductFromCart",
+							// 	payload: item.id,
+							// })
+							dispatch(removeProductFromCart(item.id))
+
+						// dispatch({
+						// 	type: "cart/removeProductFromCart",
+						// 	payload: item.id,
+						// })
 					}
 					className="cross-icon"
 				>
