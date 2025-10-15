@@ -49,17 +49,51 @@
 // 	}
 // };
 
-import { createReducer } from "@reduxjs/toolkit";
-import {
-	addToCart,
-	removeProductFromCart,
-	modifyQuantityOfAnItem,
-	clearCart,
-} from "../actions/cart";
+// import { createReducer } from "@reduxjs/toolkit";
+// import {
+// 	addToCart,
+// 	removeProductFromCart,
+// 	modifyQuantityOfAnItem,
+// 	clearCart,
+// } from "../actions/cart";
 
-export const cartReducer = createReducer([], (builder) => {
-	builder
-		.addCase(addToCart, (state, action) => {
+// export const cartReducer = createReducer([], (builder) => {
+// 	builder
+// 		.addCase(addToCart, (state, action) => {
+// 			const existingProduct = state.find(
+// 				(item) => item.id === action.payload.id,
+// 			);
+
+// 			existingProduct
+// 				? existingProduct.quantity++
+// 				: state.push({ ...action.payload, quantity: 1 });
+// 		})
+// 		.addCase(removeProductFromCart, (state, action) => {
+// 			return state.filter((item) => item.id !== action.payload);
+// 		})
+// 		.addCase(modifyQuantityOfAnItem, (state, action) => {
+// 			const targetedProductIndex = state.findIndex(
+// 				(item) => item.id === action.payload.id,
+// 			);
+// 			state[targetedProductIndex].quantity = action.payload.quantity;
+// 			// state[2]
+// 		})
+// 		.addCase(clearCart, () => {
+// 			return [];
+// 		});
+// });
+
+import { createSlice } from "@reduxjs/toolkit";
+// client state
+// server/asynchronous state
+
+// store update -> synchronous update
+
+export const cartSlice = createSlice({
+	name: "cart",
+	initialState: [],
+	reducers: {
+		addToCart(state, action) {
 			const existingProduct = state.find(
 				(item) => item.id === action.payload.id,
 			);
@@ -67,18 +101,26 @@ export const cartReducer = createReducer([], (builder) => {
 			existingProduct
 				? existingProduct.quantity++
 				: state.push({ ...action.payload, quantity: 1 });
-		})
-		.addCase(removeProductFromCart, (state, action) => {
+		},
+		removeProductFromCart(state, action) {
 			return state.filter((item) => item.id !== action.payload);
-		})
-		.addCase(modifyQuantityOfAnItem, (state, action) => {
+		},
+		modifyQuantityOfAnItem(state, action) {
 			const targetedProductIndex = state.findIndex(
 				(item) => item.id === action.payload.id,
 			);
 			state[targetedProductIndex].quantity = action.payload.quantity;
-			// state[2]
-		})
-		.addCase(clearCart, () => {
+		},
+		clearCart() {
 			return [];
-		});
+		},
+	},
 });
+
+export const {
+	addToCart,
+	removeProductFromCart,
+	clearCart,
+	modifyQuantityOfAnItem,
+} = cartSlice.actions;
+// cartSlice.reducer

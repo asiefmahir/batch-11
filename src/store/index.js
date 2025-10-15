@@ -14,14 +14,14 @@
 
 import { configureStore } from "@reduxjs/toolkit";
 
-import { cartReducer } from "./reducers/cart";
+import { cartSlice } from "./reducers/cart";
 import { themeReducer } from "./reducers/theme";
 import { counterReducer } from "./reducers/counter";
 
 const rootReducer = {
 	counter: counterReducer,
 	theme: themeReducer,
-	cart: cartReducer,
+	cart: cartSlice.reducer,
 };
 
 export const ourStore = configureStore({
