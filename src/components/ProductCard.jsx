@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { addToCart } from "../store/actions/cart";
 
+// pagination, searching, dynamic, theming, drag and drop, label
 const ProductCard = ({ product }) => {
 	const dispatch = useDispatch();
 

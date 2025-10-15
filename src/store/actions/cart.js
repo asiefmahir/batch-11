@@ -29,11 +29,21 @@
 
 // {type: "cart/modifyQuantityOfAnItem", payload:  { id: "p-1", quantity: 5 }}
 
-import { createAction } from "@reduxjs/toolkit";
+// import { createAction } from "@reduxjs/toolkit";
 
-export const addToCart = createAction("cart/addToCart");
-export const removeProductFromCart = createAction("cart/removeProductFromCart");
-export const modifyQuantityOfAnItem = createAction(
-	"cart/modifyQuantityOfAnItem",
-);
-export const clearCart = createAction("cart/clearCart");
+// export const addToCart = createAction("cart/addToCart");
+// export const removeProductFromCart = createAction("cart/removeProductFromCart");
+// export const modifyQuantityOfAnItem = createAction(
+// 	"cart/modifyQuantityOfAnItem",
+// );
+
+// {}
+// export const clearCart = createAction("cart/clearCart");
+import {
+	addToCart,
+	removeProductFromCart,
+	modifyQuantityOfAnItem,
+	clearCart,
+} from "../reducers/cart";
+
+export { addToCart, modifyQuantityOfAnItem, clearCart, removeProductFromCart };
