@@ -1,29 +1,29 @@
-// export const modifyQuantityOfAnItem = (obj) => {
-// 	return {
-// 		type: "cart/modifyQuantityOfAnItem",
-// 		payload: obj,
-// 	};
-// };
+export const modifyQuantityOfAnItem = (obj) => {
+	return {
+		type: "cart/modifyQuantityOfAnItem",
+		payload: obj,
+	};
+};
 
-// export const addToCart = (product) => {
-// 	return {
-// 		type: "cart/addToCart",
-// 		payload: product,
-// 	};
-// };
+export const addToCart = (product) => {
+	return {
+		type: "cart/addToCart",
+		payload: product,
+	};
+};
 
-// export const removeProductFromCart = (prodId) => {
-// 	return {
-// 		type: "cart/removeProductFromCart",
-// 		payload: prodId,
-// 	};
-// };
+export const removeProductFromCart = (prodId) => {
+	return {
+		type: "cart/removeProductFromCart",
+		payload: prodId,
+	};
+};
 
-// export const clearCart = () => {
-// 	return {
-// 		type: "cart/clearCart",
-// 	};
-// };
+export const clearCart = () => {
+	return {
+		type: "cart/clearCart",
+	};
+};
 
 // modifyQuantityOfAnItem({ id: "p-1", quantity: 5 });
 
@@ -39,11 +39,11 @@
 
 // {}
 // export const clearCart = createAction("cart/clearCart");
-import {
-	addToCart,
-	removeProductFromCart,
-	modifyQuantityOfAnItem,
-	clearCart,
-} from "../reducers/cart";
+// import {
+// 	addToCart,
+// 	removeProductFromCart,
+// 	modifyQuantityOfAnItem,
+// 	clearCart,
+// } from "../reducers/cart";
 
-export { addToCart, modifyQuantityOfAnItem, clearCart, removeProductFromCart };
+// export { addToCart, modifyQuantityOfAnItem, clearCart, removeProductFromCart };
