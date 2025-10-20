@@ -1,18 +1,9 @@
-import { useEffect, useState } from "react";
-
 import ProductCard from "../components/ProductCard";
-import { fetchProducts } from "../store/middlewares";
-import { useSelector, useDispatch } from "react-redux";
+import { useGetShopProductsQuery } from "../store/services";
+// import { fetchProducts } from "../store/middlewares";
 
 const Shop = () => {
-	const { isLoading, products, errorMessage } = useSelector(
-		(storeState) => storeState.product,
-	);
-
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchProducts);
-	}, []);
+	const { isLoading, error, data: products } = useGetShopProductsQuery();
 	return (
 		<div>
 			<div className="page-banner">
@@ -31,7 +22,7 @@ const Shop = () => {
 					</div>
 					<div className="section__content">
 						<div className="grid three">
-							{products.map((product) => (
+							{products?.map((product) => (
 								<ProductCard
 									key={product.id}
 									product={product}

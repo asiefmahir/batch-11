@@ -2,10 +2,14 @@ import { useSelector, useDispatch } from "react-redux";
 
 import CartItem from "../components/CartItem";
 import { clearCart } from "../store/actions/cart";
+import { useGetShopProductsQuery } from "../store/services";
 
 const Cart = () => {
 	const cart = useSelector((storeState) => storeState.cart);
 	const dispatch = useDispatch();
+	const { data } = useGetShopProductsQuery();
+	console.log(data, "data");
+
 	let totalPrice = 0;
 
 	cart.forEach((item) => (totalPrice += item.price * item.quantity));
