@@ -3,7 +3,19 @@ import { useGetShopProductsQuery } from "../store/services";
 // import { fetchProducts } from "../store/middlewares";
 
 const Shop = () => {
-	const { isLoading, error, data: products } = useGetShopProductsQuery();
+	const {
+		isLoading,
+		isError,
+		error,
+		data: products,
+	} = useGetShopProductsQuery(
+		{},
+		{
+			refetchOnFocus: false,
+			refetchOnMountOrArgChange: false,
+			refetchOnReconnect: false,
+		},
+	);
 	return (
 		<div>
 			<div className="page-banner">

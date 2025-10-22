@@ -17,13 +17,31 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const productApi = createApi({
 	reducerPath: "api",
 	baseQuery: fetchBaseQuery({ baseUrl: `http://localhost:3000` }),
-	tagTypes: ["products"],
+	refetchOnFocus: false,
+	refetchOnMountOrArgChange: false,
+	refetchOnReconnect: false,
+	tagTypes: ["products", "notes"],
 	endpoints: (build) => ({
 		getShopProducts: build.query({
 			query: () => `/products`,
+			providesTags: ["products"],
 			// query -> http://localhost:3000/products
+		}),
+		addProduct: build.mutation({
+			query: (productObj) => ({
+				url: `/products`,
+				// url -> http://localhost:3000/products
+				method: "POST",
+				body: productObj,
+			}),
+			invalidatesTags: ["products"],
 		}),
 	}),
 });
 
-export const { useGetShopProductsQuery } = productApi;
+// fetch(url, {
+// 	method: "POST",
+// 	bod
+// })
+
+export const { useGetShopProductsQuery, useAddProductMutation } = productApi;
