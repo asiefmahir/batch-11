@@ -15,6 +15,9 @@ function Nav() {
 						<li>
 							<Link to="/add-product">Add Product</Link>
 						</li>
+						<li>
+							<Link to="/todo-app">Todo app</Link>
+						</li>
 					</ul>
 				</nav>
 			</div>

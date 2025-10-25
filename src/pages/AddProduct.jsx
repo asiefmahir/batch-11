@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAddProductMutation } from "../store/services";
+import { useAddProductMutation } from "../store/services/product";
 
 const initProduct = {
 	title: "",

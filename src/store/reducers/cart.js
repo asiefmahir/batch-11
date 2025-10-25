@@ -124,3 +124,9 @@ export const {
 	modifyQuantityOfAnItem,
 } = cartSlice.actions;
 // // cartSlice.reducer
+
+// client state -> 15% -> 5% -> 10% -> context, useReducer
+// server state -> 85% -> Tanstack Query
+// you dont need redux
+// 10% -> client state
+// 10% -> client state

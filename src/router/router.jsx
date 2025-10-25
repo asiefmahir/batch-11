@@ -5,6 +5,7 @@ import ReduxExamples from "../pages/ReduxExamples";
 import Shop from "../pages/Shop";
 import Cart from "../pages/Cart";
 import AddProduct from "../pages/AddProduct";
+import Todo from "../pages/Todo";
 // import PostList from "../pages/PostList";
 
 export const ourRouter = createBrowserRouter([
@@ -16,6 +17,7 @@ export const ourRouter = createBrowserRouter([
 			{ path: "/cart", element: <Cart /> },
 			{ path: "/", element: <Shop /> },
 			{ path: "/add-product", element: <AddProduct /> },
+			{ path: "/todo-app", element: <Todo /> },
 			// { path: "/posts", element: <PostList /> },
 		],
 	},

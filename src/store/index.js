@@ -29,19 +29,19 @@ import { cartSlice } from "./reducers/cart";
 import { themeReducer } from "./reducers/theme";
 import { counterReducer } from "./reducers/counter";
 // import { productSlice } from "./reducers/product";
-import { productApi } from "./services";
+import { api } from "./services";
 // productApi.middleware
 
 const rootReducer = {
 	counter: counterReducer,
 	theme: themeReducer,
 	cart: cartSlice.reducer,
-	[productApi.reducerPath]: productApi.reducer,
+	[api.reducerPath]: api.reducer,
 };
 
 export const ourStore = configureStore({
 	reducer: rootReducer,
-	middleware: (gDM) => gDM().concat(productApi.middleware),
+	middleware: (gDM) => gDM().concat(api.middleware),
 });
 
 setupListeners(ourStore.dispatch);
