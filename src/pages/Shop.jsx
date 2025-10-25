@@ -1,6 +1,7 @@
 import ProductCard from "../components/ProductCard";
-import { useGetShopProductsQuery } from "../store/services";
+import { useGetShopProductsQuery } from "../store/services/product";
 // import { fetchProducts } from "../store/middlewares";
+// tanstack query
 
 const Shop = () => {
 	const {

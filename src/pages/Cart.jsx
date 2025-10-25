@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import CartItem from "../components/CartItem";
 import { clearCart } from "../store/actions/cart";
-import { useGetShopProductsQuery } from "../store/services";
+import { useGetShopProductsQuery } from "../store/services/product";
 
 const Cart = () => {
 	const cart = useSelector((storeState) => storeState.cart);
