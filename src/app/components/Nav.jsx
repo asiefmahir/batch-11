@@ -14,7 +14,13 @@ const Nav = () => {
 					<Link href="/about/dummy">Dummy Page</Link>
 				</li>
 				<li>
-					<Link href="post-list">Post List</Link>
+					<Link href="/post-list">Post List</Link>
+				</li>
+				<li>
+					<Link href="/shop">Shop</Link>
+				</li>
+				<li>
+					<Link href="/add-product">Add product</Link>
 				</li>
 			</ul>
 		</nav>

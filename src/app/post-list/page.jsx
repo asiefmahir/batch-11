@@ -2,6 +2,7 @@
 // server-only component
 
 import Counter from "../components/Counter";
+import Link from "next/link";
 
 // will never render on client/browser
 const PostList = async () => {
@@ -16,13 +17,16 @@ const PostList = async () => {
 			<h2>All Posts</h2>
 			<ul>
 				{posts.map((post) => (
-					<li key={post.id}>{post.title}</li>
+					<li key={post.id}>
+						<Link href={`/post-list/${post.id}`}>{post.title}</Link>
+					</li>
 				))}
 			</ul>
 			<Counter />
 		</div>
 	);
 };
+// pre-generated html pages -> Static Pages/ Pre-rendered Pages/ Static Site Generation (SSG)
 // build time / server only render
 // pre-generated html
 // faster response to user
