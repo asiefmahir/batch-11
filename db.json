@@ -128,6 +128,24 @@
       "price": 2500,
       "image": "https://images.pexels.com/photos/2042169/pexels-photo-2042169.jpeg?_gl=1*1oal8de*_ga*MTg0ODMyNTE0Mi4xNzYwMzY2NTMx*_ga_8JE65Q40S6*czE3NjE3NTAxODUkbzEwJGcxJHQxNzYxNzUyNzcyJGo1OSRsMCRoMA..",
       "id": "yf-zffU"
+    },
+    {
+      "title": "Dummy",
+      "price": 250,
+      "image": "https://images.pexels.com/photos/1034677/pexels-photo-1034677.jpeg?_gl=1*1iubwbi*_ga*MTg0ODMyNTE0Mi4xNzYwMzY2NTMx*_ga_8JE65Q40S6*czE3NjIwMDU3NTYkbzEyJGcxJHQxNzYyMDA3MTgzJGo1MiRsMCRoMA..",
+      "id": "N6aRWUO"
+    },
+    {
+      "title": "Another Smoky Product",
+      "price": 500,
+      "image": "https://images.pexels.com/photos/1034677/pexels-photo-1034677.jpeg?_gl=1*1iubwbi*_ga*MTg0ODMyNTE0Mi4xNzYwMzY2NTMx*_ga_8JE65Q40S6*czE3NjIwMDU3NTYkbzEyJGcxJHQxNzYyMDA3MTgzJGo1MiRsMCRoMA..",
+      "id": "yivwB0c"
+    },
+    {
+      "title": "testing product",
+      "price": 200,
+      "image": "https://images.pexels.com/photos/1034677/pexels-photo-1034677.jpeg?_gl=1*1iubwbi*_ga*MTg0ODMyNTE0Mi4xNzYwMzY2NTMx*_ga_8JE65Q40S6*czE3NjIwMDU3NTYkbzEyJGcxJHQxNzYyMDA3MTgzJGo1MiRsMCRoMA..",
+      "id": "E2ssTsQ"
     }
   ]
 }

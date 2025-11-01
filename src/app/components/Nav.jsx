@@ -22,6 +22,9 @@ const Nav = () => {
 				<li>
 					<Link href="/add-product">Add product</Link>
 				</li>
+				<li>
+					<Link href="/admin-products">Admin Products</Link>
+				</li>
 			</ul>
 		</nav>
 	);

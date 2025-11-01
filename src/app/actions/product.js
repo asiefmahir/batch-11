@@ -1,5 +1,5 @@
 "use server";
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
 
 export const addProduct = async (formData) => {
 	console.log(formData.get("title"), "Product Title");
@@ -12,7 +12,7 @@ export const addProduct = async (formData) => {
 	};
 
 	console.log("product", product);
-	await fetch(`http://localhost:4000/products`, {
+	await fetch(`http://localhost:3000/api/product`, {
 		method: "POST",
 		body: JSON.stringify(product),
 		headers: {
@@ -20,7 +20,11 @@ export const addProduct = async (formData) => {
 		},
 	});
 	// revalidateTag("products");
-	revalidatePath("/shop");
+	// revalidatePath("/shop");
+	updateTag("products");
 	// revalidatePath('/admin/products')
 	// regeneration
 };
+
+// isr -> incremental static re-generation
+// ssg -> static site generation
