@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 
 const Nav = () => {
 	return (
@@ -24,6 +27,12 @@ const Nav = () => {
 				</li>
 				<li>
 					<Link href="/admin-products">Admin Products</Link>
+				</li>
+				<li>
+					<Link href="/register">Sign Up</Link>
+				</li>
+				<li>
+					<button onClick={() => signOut()}>SignOut</button>
 				</li>
 			</ul>
 		</nav>
