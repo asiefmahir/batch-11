@@ -23,7 +23,7 @@ const Nav = () => {
 					<Link href="/shop">Shop</Link>
 				</li>
 				<li>
-					<Link href="/add-product">Add product</Link>
+					<Link href="/dashboard/admin/add-product">Add product</Link>
 				</li>
 				<li>
 					<Link href="/admin-products">Admin Products</Link>
