@@ -75,7 +75,7 @@ export const authOptions = {
 			return session;
 		},
 	},
-	secret: "supersecretsecret",
+	secret: process.env.NEXTAUTH_SECRET,
 	pages: {
 		signIn: "/login",
 	},

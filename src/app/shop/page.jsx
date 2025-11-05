@@ -5,6 +5,9 @@ const Shop = async () => {
 	const res = await fetch(`http://localhost:3000/api/product`, {
 		next: { tags: ["products"] },
 	});
+	// fullstack project -> Backend -> Frontend
+	// Backend -> DB
+	// project
 	const data = await res.json();
 	console.log(data);
 

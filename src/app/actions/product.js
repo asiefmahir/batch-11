@@ -1,6 +1,8 @@
 "use server";
 import { revalidatePath, updateTag } from "next/cache";
 
+// backend, db, auth
+
 export const addProduct = async (formData) => {
 	console.log(formData.get("title"), "Product Title");
 	console.log(formData.get("price"), "Product Price");
