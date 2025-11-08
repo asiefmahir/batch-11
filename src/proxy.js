@@ -36,7 +36,6 @@ export const config = {
 		"/checkout",
 		"/dashboard/:path*",
 		"/api/user/:path*",
-		"/shop",
 		"/api/admin/:path*",
 	],
 };
