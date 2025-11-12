@@ -3,20 +3,11 @@ import { revalidatePath, updateTag } from "next/cache";
 
 // backend, db, auth
 
-export const addProduct = async (formData) => {
-	console.log(formData.get("title"), "Product Title");
-	console.log(formData.get("price"), "Product Price");
-
-	const product = {
-		title: formData.get("title"),
-		price: Number(formData.get("price")),
-		image: formData.get("image"),
-	};
-
-	console.log("product", product);
+export const addProduct = async (data) => {
+	console.log("product", data);
 	await fetch(`http://localhost:3000/api/product`, {
 		method: "POST",
-		body: JSON.stringify(product),
+		body: JSON.stringify({ ...data }),
 		headers: {
 			"Content-Type": "application/json",
 		},
