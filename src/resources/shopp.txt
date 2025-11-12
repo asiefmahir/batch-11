@@ -1,49 +1,21 @@
 export const dynamic = "force-dynamic";
-// server side rendering
 // dynamic
 // server side rendering
 // client side rendering
-// backend-frontend
 
 import ProductFilter from "@/app/components/ProductFilter";
 import Pagination from "@/app/components/Pagination";
 import ProductCard from "@/app/components/ProductCard";
-import { getBaseUrl } from "@/app/utils/api";
+import { getBaseUrl } from "@/utils/api";
 
-const getProductsForShop = async (queryParams) => {
-	const searchQuery = new URLSearchParams({
-		page: queryParams.page || 1,
-		minPrice: queryParams.minPrice || "",
-		maxPrice: queryParams.maxPrice || "",
-		category: queryParams.category || "",
-	}).toString();
 
-	const baseUrl = getBaseUrl();
-
-	try {
-		const res = await fetch(
-			`${baseUrl}/api/product/filters?${searchQuery}`,
-		);
-		if (!res.ok) {
-			throw new Error("Failed to Fetch To Products");
-		}
-		const data = await res.json();
-		return data;
-	} catch (error) {
-		console.log(error);
-		return { products: [], currentPage: 1, totalPages: 1 };
-	}
-};
 
 export default async function Shop({ searchParams }) {
 	const { page, minPrice, maxPrice, category } = await searchParams;
-	const queryParams = { page, minPrice, maxPrice, category };
+	const upd = { page, minPrice, maxPrice, category };
 	// console.log(upd, "Ipd");
-	const { products, currentPage, totalPages } = await getProductsForShop(
-		queryParams,
-	);
 
-	// const { products, currentPage, totalPages } = await getProductsForShop(upd);
+	const { products, currentPage, totalPages } = await getProductsForShop(upd);
 
 	return (
 		<div className="w-full px-4">
@@ -59,7 +31,7 @@ export default async function Shop({ searchParams }) {
 						Shop Latest Products
 					</h4>
 
-					{products?.length > 0 ? (
+					{products.length > 0 ? (
 						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
 							{products.map((product) => (
 								<ProductCard
