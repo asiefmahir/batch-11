@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { addProduct } from "@/app/actions/product";
@@ -11,6 +12,7 @@ const AddProduct = () => {
 		category: "",
 	});
 	const [categories, setCategories] = useState([]);
+	const [imageUrl, setImageUrl] = useState("");
 	useEffect(() => {
 		const getAllCategories = async () => {
 			const res = await fetch(`http://localhost:3000/api/category`);
@@ -39,6 +41,30 @@ const AddProduct = () => {
 			image: "",
 			category: "",
 		});
+	};
+
+	const handleImageChange = async (e) => {
+		console.log(e.target.files[0]);
+		const file = e.target.files[0];
+
+		const data = new FormData();
+
+		data.append("file", file);
+		data.append("upload_preset", "batch-11-project");
+		data.append("cloud_name", "dcdga3gke");
+
+		const res = await fetch(
+			`https://api.cloudinary.com/v1_1/dcdga3gke/image/upload`,
+			{
+				method: "POST",
+				body: data,
+			},
+		);
+
+		const result = await res.json();
+		console.log(result, "result");
+		setImageUrl(result.secure_url);
+		setProduct({ ...product, image: result.secure_url });
 	};
 	return (
 		<>
@@ -82,17 +108,24 @@ const AddProduct = () => {
 				<p>Image</p>
 
 				<input
-					value={product.image}
-					onChange={handleChange}
-					type="text"
+					onChange={handleImageChange}
+					type="file"
 					name="image"
 					required
 					style={{ display: "block", width: "70%" }}
 				/>
 				<br />
 				<br />
+				<p>Image Preview:</p>
+				{imageUrl && (
+					<img
+						src={imageUrl}
+						style={{ width: "100px", height: "100px" }}
+						alt=""
+					/>
+				)}
 
-				<input type="submit" />
+				{imageUrl && <input type="submit" />}
 			</form>
 		</>
 	);

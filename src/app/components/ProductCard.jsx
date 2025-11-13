@@ -1,5 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 // pagination, searching, dynamic, theming, drag and drop, label
+"use client";
+
+import { useCart } from "../contexts/Cart";
 const ProductCard = ({ product }) => {
+	const { addToCart } = useCart();
 	return (
 		<div className="ingredient">
 			<div className="ingredient__image">
@@ -16,7 +21,12 @@ const ProductCard = ({ product }) => {
 				</p>
 			</div>
 			<div className="ingredient__btn">
-				<button className="btn-white">ADD TO CART</button>
+				<button
+					onClick={() => addToCart(product)}
+					className="btn-white"
+				>
+					ADD TO CART
+				</button>
 			</div>
 		</div>
 	);

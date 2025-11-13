@@ -32,7 +32,6 @@ export default withAuth(
 
 export const config = {
 	matcher: [
-		"/cart",
 		"/checkout",
 		"/dashboard/:path*",
 		"/api/user/:path*",
