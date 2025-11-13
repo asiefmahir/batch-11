@@ -1,4 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import SessionProviderWrapper from "./components/SessionProviderWrapper";
+import CartProviderWrapper from "./components/CartProviderWrapper";
+
 import "./globals.css";
 import Nav from "./components/Nav";
 
@@ -21,8 +24,12 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={`${geistSans.variable} ${geistMono.variable}`}>
-				<Nav />
-				{children}
+				<SessionProviderWrapper>
+					<CartProviderWrapper>
+						<Nav />
+						{children}
+					</CartProviderWrapper>
+				</SessionProviderWrapper>
 			</body>
 		</html>
 	);
