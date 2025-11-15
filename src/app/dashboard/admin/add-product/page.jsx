@@ -15,7 +15,7 @@ const AddProduct = () => {
 	const [imageUrl, setImageUrl] = useState("");
 	useEffect(() => {
 		const getAllCategories = async () => {
-			const res = await fetch(`http://localhost:3000/api/category`);
+			const res = await fetch(`/api/category`);
 			const data = await res.json();
 			setCategories(data);
 			setProduct({ ...product, category: data[0]._id });
