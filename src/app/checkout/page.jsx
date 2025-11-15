@@ -1,0 +1,66 @@
+"use client";
+
+import { useState } from "react";
+import { useCart } from "@/app/contexts/Cart";
+import OrderSummary from "@/app/components/OrderSummary";
+
+export default function Checkout() {
+	const { cart } = useCart();
+	const [loading, setLoading] = useState(false);
+
+	const submitHandler = async () => {
+		setLoading(true);
+		try {
+			const cartData = cart?.map((item) => ({
+				_id: item._id,
+				quantity: item.quantity,
+			}));
+			const response = await fetch(`/api/user/stripe/session`, {
+				method: "POST",
+				body: JSON.stringify({ cartItems: cartData }),
+			});
+			//
+			const data = await response.json();
+			if (response.ok) {
+				window.location.href = data.url;
+			} else {
+				setLoading(false);
+			}
+		} catch (err) {
+			console.log(err);
+			setLoading(false);
+		}
+	};
+
+	return (
+		<div className="container mx-auto px-4">
+			<div className="flex flex-wrap -mx-4">
+				<div className="w-full lg:w-2/3 px-4">
+					<p className="bg-blue-100 text-blue-800 px-4 py-2 rounded mb-4">
+						Payment Method
+					</p>
+					<h2 className="text-center text-3xl mb-4">🔒 💳</h2>
+
+					<p className="bg-gray-700 text-white rounded-lg p-6 shadow text-lg leading-relaxed">
+						Clicking Place Order will securely redirect you to our
+						trusted payment partner, Stripe to complete your order.
+					</p>
+
+					<div className="flex justify-end my-6">
+						<button
+							className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded shadow-lg w-1/2 transition disabled:opacity-60 disabled:cursor-not-allowed"
+							onClick={submitHandler}
+							disabled={loading}
+						>
+							{loading ? "Processing.." : "Place Order"}
+						</button>
+					</div>
+				</div>
+
+				<div className="w-full lg:w-1/3 px-4">
+					<OrderSummary />
+				</div>
+			</div>
+		</div>
+	);
+}

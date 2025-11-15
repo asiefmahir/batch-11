@@ -47,6 +47,16 @@ const Shop = async ({ searchParams }) => {
 							<h1>Our E-commerce Website</h1>
 						</div>
 					</div>
+					<div className="page-banner__details">
+						<div className="page-banner__details__title">
+							<h1>Our E-commerce Website</h1>
+						</div>
+					</div>
+					<div className="page-banner__details">
+						<div className="page-banner__details__title">
+							<h1>Our E-commerce Website</h1>
+						</div>
+					</div>
 				</div>
 				<div className="section">
 					<div className="container">
@@ -55,6 +65,7 @@ const Shop = async ({ searchParams }) => {
 								<h2>All Products</h2>
 							</div>
 						</div>
+
 						<div className="section__content">
 							<div className="grid three">
 								{data?.products?.map((product) => (
