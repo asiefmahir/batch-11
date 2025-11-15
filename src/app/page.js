@@ -79,7 +79,7 @@ const Shop = async ({ searchParams }) => {
 					</div>
 				</div>
 			</div>
-			<Pagination totalPages={data.totalPages} pathname={"/shop"} />
+			<Pagination totalPages={data.totalPages} pathname={"/"} />
 		</main>
 	);
 };
