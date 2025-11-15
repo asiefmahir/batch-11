@@ -1,11 +1,13 @@
 "use server";
 import { revalidatePath, updateTag } from "next/cache";
+import { getBaseUrl } from "../utils/api";
 
 // backend, db, auth
 
 export const addProduct = async (data) => {
 	console.log("product", data);
-	await fetch(`http://localhost:3000/api/product`, {
+	const baseUrl = getBaseUrl();
+	await fetch(`${baseUrl}/api/product`, {
 		method: "POST",
 		body: JSON.stringify({ ...data }),
 		headers: {
