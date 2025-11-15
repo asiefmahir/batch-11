@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 // pagination, searching, dynamic, theming, drag and drop, label
 "use client";
+import Image from "next/image";
 
 import { useCart } from "../contexts/Cart";
 const ProductCard = ({ product }) => {
@@ -9,7 +10,12 @@ const ProductCard = ({ product }) => {
 		<div className="ingredient">
 			<div className="ingredient__image">
 				<figure>
-					<img src={product.image} alt={product.title} />
+					<Image
+						src={product.image}
+						alt={product.title}
+						width={1600}
+						height={900}
+					/>
 				</figure>
 			</div>
 			<div className="ingredient__title">
